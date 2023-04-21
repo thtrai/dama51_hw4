@@ -47,5 +47,5 @@ library('caret')
 seedTypeFactor = factor(seeds_orig$seedType)
 clusterFactor = factor(rearranged_vector)
 
-conf = confusionMatrix(data=seedTypeFactor, reference=clusterFactor)
+conf = confusionMatrix(data=clusterFactor, reference=seedTypeFactor)
 print(conf$table)
