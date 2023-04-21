@@ -49,3 +49,24 @@ clusterFactor = factor(rearranged_vector)
 
 conf = confusionMatrix(data=clusterFactor, reference=seedTypeFactor)
 print(conf$table)
+
+
+#topic 3c
+library(cluster) #must be installed
+
+#silhouette coefficients of 3 clusters
+sil3 = silhouette(c$cluster, dist(scseeds))
+#print the average silhouette of 3 clusters, rounded
+print(round(mean(sil3[,3]),3))
+
+#create clustering with 4 centroids:
+
+set.seed(123)
+c4 = kmeans(scseeds,4)
+
+#silhouette of 4 clusters:
+sil4 = silhouette(c4$cluster, dist(scseeds))
+
+#print the average silhouette of 4 clusters, rounded
+print(round(mean(sil4[,3]),3))
+
