@@ -1,4 +1,5 @@
 #import seeds data and run set.seed as stated in topic
+#topic 3a
 set.seed(123)
 seeds_orig = read.csv('seeds_dataset.csv', header=T)
 
@@ -27,3 +28,24 @@ print(c$cluster[c(9,55,189)])
 #print the euclidean distance of the centroids, rounded
 
 print(round(dist(c$centers, method='euclidean'),3))
+
+#topic 3b
+#I can see c$cluster vector has stored the assignments of cluster 2 first.
+#I need to rearrange this in a new vector.
+#create a new vector to store integers(cluster assignment) of length
+#equal to the length of c$cluster
+#then rearrange as stated.
+rearranged_vector = vector(mode='integer', length=length(c$cluster))
+
+rearranged_vector[c$cluster==2] =1
+rearranged_vector[c$cluster==1] =2
+rearranged_vector[c$cluster==3] =3
+
+#create the confusion matrix and print it
+library('caret')
+
+seedTypeFactor = factor(seeds_orig$seedType)
+clusterFactor = factor(rearranged_vector)
+
+conf = confusionMatrix(data=seedTypeFactor, reference=clusterFactor)
+print(conf$table)
