@@ -48,7 +48,7 @@ pltree(cluster_single)
 #create the vector with the 7 group memberships as g, from the 
 #previous complete linkage hierarchical clustering
 
-g = cutree(cluster_complete, k=7)
+assignments_7 = cutree(cluster_complete, k=7)
 
 #extract the countries names from distMatrixFull
 countries = rownames(as.matrix(distMatrixFull))
@@ -58,17 +58,45 @@ index_switz = which(countries == 'Switzerland')
 index_norway = which(countries == 'Norway')
 
 #find in which cluster the countries has been assigned
-cluster_switz = g[index_switz]
-cluster_norway = g[index_norway]
+cluster_switz = assignments_7[index_switz]
+cluster_norway = assignments_7[index_norway]
 
 #find the indeces of countries with the same group as Switzerland and Norway
-index_group_switz = which(g==cluster_switz)
-index_group_norway = which(g==cluster_norway)
+index_group_switz = which(assignments_7==cluster_switz)
+index_group_norway = which(assignments_7==cluster_norway)
 
 #Group with Switzerland
-group1 = countries[index_group_switz]
-print(group1)
+group_switz = countries[index_group_switz]
+print(group_switz)
 
 #Group with Norway
-group2 = countries[index_group_norway]
-print(group2)
+group_norway = countries[index_group_norway]
+print(group_norway)
+
+#topic 4e
+#working similarly with the previous topic, 
+#start partitioning with 1 cluster and consecutively 
+#increase the number of clusters. Check each time if 
+#the group containing "Greece" also contain "Cyprus".
+#Stop at the maximum number.
+
+Greece_and_Cyprus_max_cluster = function(){
+
+	max_cluster_number = 1 
+	while (max_cluster_number < length(countries)){
+
+	assignments = cutree(cluster_complete, k=max_cluster_number) 
+	index_greece = which(countries == 'Greece')
+	cluster_greece = assignments[index_greece]
+	index_group_greece = which(assignments==cluster_greece)
+	group_greece = countries[index_group_greece]
+
+	flag= "Cyprus" %in% group_greece
+	if (flag == FALSE){
+		return (max_cluster_number)
+		}
+	else{
+		max_cluster_number = max_cluster_number+1
+	}
+	}
+}
