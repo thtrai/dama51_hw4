@@ -40,8 +40,8 @@ cluster_complete = agnes(distMatrixFull, method='complete')
 #agglomarative cluster using distance matrix, with single clustering method
 cluster_single = agnes(distMatrixFull, method='single')
 
-pltree(cluster_complete) #complete linkage dendogram
-pltree(cluster_single) #single linkage dendogram
+pltree(cluster_complete, main='dendogram complete linkage') #complete linkage dendogram
+pltree(cluster_single, main='dendogram single linkage') #single linkage dendogram
 
 #topic 4d
 #create the vector with the 7 group memberships as g, from the 
@@ -92,7 +92,7 @@ Greece_and_Cyprus_max_cluster = function(){
 
 	flag= "Cyprus" %in% group_greece
 	if (flag == FALSE){
-		return (max_cluster_number)
+		return (max_cluster_number-1) #return the previous max_cluster_number, where flag was TRUE
 		}
 	else{
 		max_cluster_number = max_cluster_number+1
