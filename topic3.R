@@ -30,6 +30,7 @@ print(c$cluster[c(9,55,189)])
 print(round(dist(c$centers, method='euclidean'),3))
 
 #topic 3b
+print(c$cluster)
 #I can see c$cluster vector has stored the assignments of cluster 2 first.
 #I need to rearrange this in a new vector.
 #create a new vector to store integers(cluster assignment) of length

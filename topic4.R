@@ -1,11 +1,10 @@
 #topic 4a
-#import europe dataset as europe_orig.
-#I can open the csv as text and confirm the fist row is the headers.
+#import europe dataset as europe_orig. The first row contains headers.
 
 europe_orig = read.csv('europe_diet.csv',header=T)
+print(europe_orig)
 
-#I will use head to print the first lines of dataset, and inspect import
-#I can confirm the first column of the dataset contains the names of the countries.
+#Inspect and confirm the first column of the dataset contains the names of the countries.
 
 print(head(europe_orig))
 
@@ -41,8 +40,8 @@ cluster_complete = agnes(distMatrixFull, method='complete')
 #agglomarative cluster using distance matrix, with single clustering method
 cluster_single = agnes(distMatrixFull, method='single')
 
-pltree(cluster_complete)
-pltree(cluster_single)
+pltree(cluster_complete) #complete linkage dendogram
+pltree(cluster_single) #single linkage dendogram
 
 #topic 4d
 #create the vector with the 7 group memberships as g, from the 
