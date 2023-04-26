@@ -2,7 +2,6 @@
 #import europe dataset as europe_orig. The first row contains headers.
 
 europe_orig = read.csv('europe_diet.csv',header=T)
-print(europe_orig)
 
 #Inspect and confirm the first column of the dataset contains the names of the countries.
 
@@ -99,3 +98,5 @@ Greece_and_Cyprus_max_cluster = function(){
 	}
 	}
 }
+
+print(Greece_and_Cyprus_max_cluster())

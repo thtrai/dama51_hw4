@@ -62,7 +62,7 @@ sil3 = silhouette(c$cluster, dist(scseeds))
 print(round(mean(sil3[,3]),3))
 
 #visualize kmenas for k =3 
-fviz_cluster(c, data=scseeds, main='plot of kmeans with 3 clusters')
+show(fviz_cluster(c, data=scseeds, main='plot of kmeans with 3 clusters'))
 
 #create clustering with 4 centroids:
 
@@ -78,4 +78,4 @@ print(round(mean(sil4[,3]),3))
 #I confirm the silhouette for 4 clusters is lower
 
 #visualize kmenas for k =4 
-fviz_cluster(c4, data=scseeds, main='plot of kmeans with 4 clusters')
+show(fviz_cluster(c4, data=scseeds, main='plot of kmeans with 4 clusters'))
