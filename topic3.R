@@ -54,11 +54,15 @@ print(conf$table)
 
 #topic 3c
 library(cluster) #must be installed
+library('factoextra') #must be installed
 
 #silhouette coefficients of 3 clusters
 sil3 = silhouette(c$cluster, dist(scseeds))
 #print the average silhouette of 3 clusters, rounded
 print(round(mean(sil3[,3]),3))
+
+#visualize kmenas for k =3 
+fviz_cluster(c, data=scseeds, main='plot of kmeans with 3 clusters')
 
 #create clustering with 4 centroids:
 
@@ -71,3 +75,7 @@ sil4 = silhouette(c4$cluster, dist(scseeds))
 #print the average silhouette of 4 clusters, rounded
 print(round(mean(sil4[,3]),3))
 
+#I confirm the silhouette for 4 clusters is lower
+
+#visualize kmenas for k =4 
+fviz_cluster(c4, data=scseeds, main='plot of kmeans with 4 clusters')
