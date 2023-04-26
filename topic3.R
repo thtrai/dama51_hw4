@@ -17,7 +17,7 @@ scseeds = as.data.frame(scseeds) #convert it to data frame
 print(sapply(scseeds, mean)) #indeed the mean is 0, (very close to zero due to rounding errors) for every attribute 
 print(sapply(scseeds, sd)) #indeed the standard deviation is 1 for every attribute
 
-c = kmeans(scseeds, 3) #apply kmeans algorithm to scseeds with 3 centers and nstart 25!!!!!!!!!!!!!!! 
+c = kmeans(scseeds, 3) #apply kmeans algorithm to scseeds with 3 centers
 
 #print centroids perimeter, rounded 
 print(round(c$centers[,'perimeter'],3))
