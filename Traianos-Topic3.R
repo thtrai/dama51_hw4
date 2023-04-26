@@ -60,6 +60,10 @@ print(faulsely_wheats)
 #accuracy:
 print(round(conf$overall['Accuracy'],3))
 
+#So the number of wheats assigned in clusters 1,2,3 respectively are:
+print(sum(conf$table[1,]))
+print(sum(conf$table[2,]))
+print(sum(conf$table[3,]))
 
 
 #topic 3c
