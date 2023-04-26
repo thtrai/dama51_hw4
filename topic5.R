@@ -10,7 +10,7 @@ print(appstrans@itemInfo)
 print(summary(appstrans))
 
 #topcic 5c
-itemFrequencyPlot(appstrans, topN=10)
+itemFrequencyPlot(appstrans, topN=10, main='Frequency Plot top10')
 
 #topcic 5d
 #run apriori with the given parameters.
