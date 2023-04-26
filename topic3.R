@@ -51,6 +51,16 @@ clusterFactor = factor(rearranged_vector)
 conf = confusionMatrix(data=clusterFactor, reference=seedTypeFactor)
 print(conf$table)
 
+#the correct assigned wheats are on the diagonal.
+#so add all the table and subtract the correct
+
+faulsely_wheats = sum(conf$table) - sum(diag(conf$table))
+print(faulsely_wheats)
+
+#accuracy:
+print(round(conf$overall['Accuracy'],3))
+
+
 
 #topic 3c
 library(cluster) #must be installed
